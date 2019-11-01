@@ -6,6 +6,7 @@ import (
 	"github.com/olekukonko/tablewriter"
 )
 
+// GetTable return configured tablewriter.Table
 func GetTable() *tablewriter.Table {
 	table := tablewriter.NewWriter(os.Stdout)
 	table.SetBorder(false)

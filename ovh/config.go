@@ -8,6 +8,8 @@ import (
 	"github.com/spf13/viper"
 )
 
+// APIConfig is data structure to store every informations
+// need to communicate with api.ovh.com
 type APIConfig struct {
 	Profile           string
 	Endpoint          string
@@ -24,6 +26,7 @@ func (c *APIConfig) toArrow() []string {
 	return []string{c.Profile, c.ApplicationKey, c.ApplicationSecret, c.ConsumerKey, c.Endpoint}
 }
 
+// GetCurrentAPIConfig return filled APIConfig data structure
 func GetCurrentAPIConfig() APIConfig {
 	profile := viper.GetString("profile")
 	return getAPIConfig(profile)

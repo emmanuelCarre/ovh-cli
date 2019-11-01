@@ -7,16 +7,21 @@ import (
 )
 
 var (
+	// GitCommit is git commit hash and define during build.
 	GitCommit string
-	Version   string
+	// Version is application version and define during build.
+	Version string
+	// GoVersion is Golang version and define during build.
 	GoVersion string
-	OsArchi   string
+	// OsArchi is Golang architectuer and define during build.
+	OsArchi string
+	// BuildDate is build date and define during build.
 	BuildDate string
 )
 
 var versionCmd = &cobra.Command{
 	Use:   "version",
-	Short: "print version",
+	Short: "Print version",
 	Run: func(cmd *cobra.Command, args []string) {
 		fmt.Printf("Version:    %s\n", Version)
 		fmt.Printf("Commit:     %s\n", GitCommit)

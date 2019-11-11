@@ -30,4 +30,5 @@ test: gen_mock
 
 .PHONY: gen_mock
 gen_mock:
-	mockgen -source=ovh/ovh.go -destination=mocks/ovh.go
+	mockgen -destination=mocks/ovh.go -package=mocks github.com/emmanuelCarre/ovh-cli/ovh Client
+	# mockgen -source=ovh/ovh.go -destination=mocks/ovh.go

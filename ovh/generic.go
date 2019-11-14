@@ -24,16 +24,16 @@ func FetchResource(client *Client, resourceURI string, resourceID int, resource 
 	return err
 }
 
-func FetchResourcesID(client *Client, resourceURI string) ([]int, error) {
-	ResourcesID := []int{}
+func FetchResourcesID(client *Client, resourceURI string, resourcesID *[]int) ([]int, error) {
+	// ResourcesID := []int{}
 
-	err := (*client).Get(resourceURI, &ResourcesID)
+	err := (*client).Get(resourceURI, resourcesID)
 	if err != nil {
 		log.Errorln("Unable to list resources:", err)
 		return nil, err
 	}
-	sort.Ints(ResourcesID)
-	return ResourcesID, err
+	sort.Ints(*resourcesID)
+	return *resourcesID, err
 }
 
 func DeleteResources(client *Client, resourceURI string, resourcesID []string) {
